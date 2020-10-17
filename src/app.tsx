@@ -1,9 +1,9 @@
 // eslint-disable-next-line no-use-before-define
 import * as React from 'react';
 
-const App = (): React.ReactElement => (
+const App: React.FC = () => (
   <div>
-    app running11
+    app running1
   </div>
 );
 
