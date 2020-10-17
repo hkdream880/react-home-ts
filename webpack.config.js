@@ -22,8 +22,24 @@ module.exports = {
         use: ['style-loader', 'css-loader'],
       },
       {
-        enforce: 'pre', test: /\.js$/, loader: 'source-map-loader',
+        enforce: 'pre', test: /\.tsx$/, loader: 'source-map-loader',
       },
+      { 
+        test: /\.png$/,
+        loader: 'file-loader',
+        options: {
+          name: '[name].[ext]?[hash]'
+        }
+      },
+      {
+        test: /\.(png|jpg|gif|svg)$/,
+        loader: 'file-loader',
+        options: {
+          publicPath: './dist',
+          name: '[name].[ext]?[hash]',
+          limit: 4000,
+        }
+      }
     ],
   },
   plugins: [
@@ -33,9 +49,8 @@ module.exports = {
     }),
   ],
   output: {
-    filename: '[name].js',
+    filename: '[name].[hash].js',
     path: path.join(__dirname, 'dist'),
-    publicPath: '/dist',
   },
   node: {
     fs: 'empty',
