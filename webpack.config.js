@@ -7,6 +7,9 @@ module.exports = {
   devtool: 'eval', // hidden-source-map
   resolve: {
     extensions: ['.jsx', '.js', '.tsx', '.ts'],
+    // alias: {
+    //   '@': path.resolve(__dirname, 'src'),
+    // },
   },
   entry: {
     app: './src/index',
@@ -47,6 +50,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './src/index.html',
     }),
+    // new webpack.HotModuleReplacementPlugin() //hot loader 와 안맞는듯?
   ],
   output: {
     filename: '[name].[hash].js',

@@ -21,10 +21,23 @@ module.exports = {
     'react',
     '@typescript-eslint',
   ],
+  ignorePatterns: ["src/index.tsx", "test/**/*"],
   rules: {
     'linebreak-style': 0,
     'react/jsx-filename-extension': 0,
     "indent": ["error", 2],
-    "semi": ["error","never"]
+    "semi": ["error","never"],
+  //   "import/extensions": [
+  //     "error",
+  //     "ignorePackages",
+  //     {
+  //       "js": "never",
+  //       "jsx": "never",
+  //       "ts": "never",
+  //       "tsx": "never"
+  //     }
+  //  ],
+   "import/extensions": ['off'],
+   "import/no-unresolved": 0
   },
 };
