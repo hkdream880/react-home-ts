@@ -1,6 +1,7 @@
 // eslint-disable-next-line no-use-before-define
 import * as React from 'react'
 import clsx from 'clsx'
+import * as classNames from 'classnames'
 import {
   createStyles, makeStyles, useTheme, Theme,
 } from '@material-ui/core/styles'
@@ -94,7 +95,13 @@ const useStyles = makeStyles((theme: Theme) => {
 const LeftMenu:React.FC = ():React.ReactElement => {
   const classes = useStyles()
   const theme = useTheme()
+  // left menu spend
   const [open, setOpen] = React.useState(false)
+
+  const toolbarClass = React.useMemo(() => classNames({
+    [classes.drawerOpen]: open,
+    [classes.drawerClose]: !open,
+  }), [open])
 
   const handleDrawerOpen = () => {
     setOpen(true)
@@ -105,7 +112,7 @@ const LeftMenu:React.FC = ():React.ReactElement => {
   }
 
   return (
-    <div className={classes.root}>
+    <div className={classes.root} data-testid="leftMenu">
       <CssBaseline />
       {/* <AppBar
         position="fixed"
@@ -132,16 +139,20 @@ const LeftMenu:React.FC = ():React.ReactElement => {
       </AppBar> */}
       <Drawer
         variant="permanent"
-        className={clsx(classes.drawer, {
-          [classes.drawerOpen]: open,
-          [classes.drawerClose]: !open,
-        })}
+        className={toolbarClass}
         classes={{
-          paper: clsx({
-            [classes.drawerOpen]: open,
-            [classes.drawerClose]: !open,
-          }),
+          paper: toolbarClass,
         }}
+        // className={clsx(classes.drawer, {
+        //   [classes.drawerOpen]: open,
+        //   [classes.drawerClose]: !open,
+        // })}
+        // classes={{
+        //   paper: clsx({
+        //     [classes.drawerOpen]: open,
+        //     [classes.drawerClose]: !open,
+        //   }),
+        // }}
       >
         {/* <div className={classes.toolbar}>
           <IconButton onClick={handleDrawerClose}>

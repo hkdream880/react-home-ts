@@ -38,6 +38,7 @@ module.exports = {
   //     }
   //  ],
    "import/extensions": ['off'],
-   "import/no-unresolved": 0
+   "import/no-unresolved": 0,
+   'react-hooks/exhaustive-deps': 0
   },
 };
