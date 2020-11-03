@@ -13,13 +13,17 @@ import renderer from 'react-test-renderer'
 //   ReactDOM.render(<Header />, div)
 // })
 
-afterEach(cleanup)
-it('헤더가 있는가?', () => {
-  const { getByTestId } = render(<Header />)
-  expect(getByTestId('header')).toBeDefined()
-})
 
-it('스냅샷 테스트', () => {
-  const snap_tree = renderer.create(<Header />).toJSON()
-  expect(snap_tree).toMatchSnapshot();
+afterEach(cleanup)
+
+describe('헤더 테스트 입니다.',() => {
+  it('헤더가 있는가?', () => {
+    const { getByTestId } = render(<Header />)
+    expect(getByTestId('header')).toBeDefined()
+  })
+  
+  it('스냅샷 테스트', () => {
+    const snap_tree = renderer.create(<Header />).toJSON()
+    expect(snap_tree).toMatchSnapshot();
+  })
 })
