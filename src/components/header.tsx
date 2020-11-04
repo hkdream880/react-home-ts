@@ -20,14 +20,27 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }))
 
-const ButtonAppBar:React.FC = (): React.ReactElement => {
+type HeaderProps = {
+  toggleNavi(showNavi: boolean): void
+  showNavi: boolean
+}
+
+const Header:React.FC<HeaderProps> = ({ toggleNavi, showNavi }): React.ReactElement => {
   const classes = useStyles()
 
   return (
     <div className={classes.root} data-testid="header">
       <AppBar position="static">
         <Toolbar>
-          <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
+          <IconButton
+            edge="start"
+            className={classes.menuButton}
+            color="inherit"
+            aria-label="menu"
+            onClick={() => {
+              toggleNavi(!showNavi)
+            }}
+          >
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
@@ -40,4 +53,4 @@ const ButtonAppBar:React.FC = (): React.ReactElement => {
   )
 }
 
-export default ButtonAppBar
+export default Header
