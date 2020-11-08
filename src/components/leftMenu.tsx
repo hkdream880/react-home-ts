@@ -13,6 +13,7 @@ import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
+import { Link } from 'react-router-dom'
 
 const drawerWidth = 240
 
@@ -68,21 +69,31 @@ const LeftMenu:React.FC<LeftMenuProps> = ({ open }) => {
       >
         <Divider />
         <List className={classes.list}>
-          {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
+          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
+          <ListItem button>
+            <ListItemIcon><InboxIcon /></ListItemIcon>
+            {/* <ListItemText primary="test" /> */}
+            <Link to="/">home</Link>
+          </ListItem>
         </List>
         <Divider />
         <List className={classes.list}>
-          {['All mail', 'Trash', 'Spam'].map((text, index) => (
+          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
             <ListItem button key={text}>
               <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-          ))}
+          ))} */}
+          <ListItem button>
+            <ListItemIcon><MailIcon /></ListItemIcon>
+
+            <Link to="page2">page2</Link>
+          </ListItem>
         </List>
       </Drawer>
     </div>

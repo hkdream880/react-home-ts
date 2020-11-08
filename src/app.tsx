@@ -35,18 +35,19 @@ const App: React.FC = () => {
       <Header toggleNavi={setShowLeftNavi} showNavi={showLeftNavi} />
       <Container>
         <div className={classes.root}>
-          <LeftMenu open={showLeftNavi} />
-          <main className={classes.content}>
-            <BrowserRouter>
+          <BrowserRouter>
+            <LeftMenu open={showLeftNavi} />
+            <main className={classes.content}>
+
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/page2" component={Page2} />
               </Switch>
-            </BrowserRouter>
-            {/* <Typography paragraph>
+              {/* <Typography paragraph>
               contents
             </Typography> */}
-          </main>
+            </main>
+          </BrowserRouter>
         </div>
       </Container>
 
