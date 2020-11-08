@@ -2,7 +2,7 @@
 import * as React from 'react'
 import * as classNames from 'classnames'
 import {
-  createStyles, makeStyles, useTheme, Theme,
+  createStyles, makeStyles, Theme,
 } from '@material-ui/core/styles'
 import Drawer from '@material-ui/core/Drawer'
 import List from '@material-ui/core/List'

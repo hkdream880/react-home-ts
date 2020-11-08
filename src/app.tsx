@@ -7,8 +7,13 @@ import Container from '@material-ui/core/Container'
 import {
   createStyles, makeStyles, Theme,
 } from '@material-ui/core/styles'
+import {
+  BrowserRouter, Route, Router, Switch,
+} from 'react-router-dom'
 import Header from './components/header'
 import LeftMenu from './components/leftMenu'
+import Home from './pages/home'
+import Page2 from './pages/page2'
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -32,9 +37,15 @@ const App: React.FC = () => {
         <div className={classes.root}>
           <LeftMenu open={showLeftNavi} />
           <main className={classes.content}>
-            <Typography paragraph>
+            <BrowserRouter>
+              <Switch>
+                <Route path="/" exact component={Home} />
+                <Route path="/page2" component={Page2} />
+              </Switch>
+            </BrowserRouter>
+            {/* <Typography paragraph>
               contents
-            </Typography>
+            </Typography> */}
           </main>
         </div>
       </Container>
