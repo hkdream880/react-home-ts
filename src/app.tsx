@@ -2,13 +2,12 @@
 import * as React from 'react'
 import { hot } from 'react-hot-loader/root'
 import CssBaseline from '@material-ui/core/CssBaseline'
-import Typography from '@material-ui/core/Typography'
 import Container from '@material-ui/core/Container'
 import {
   createStyles, makeStyles, Theme,
 } from '@material-ui/core/styles'
 import {
-  BrowserRouter, Route, Router, Switch,
+  BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom'
 import Header from './components/header'
 import LeftMenu from './components/leftMenu'
@@ -38,14 +37,11 @@ const App: React.FC = () => {
           <BrowserRouter>
             <LeftMenu open={showLeftNavi} />
             <main className={classes.content}>
-
               <Switch>
                 <Route path="/" exact component={Home} />
                 <Route path="/page2" component={Page2} />
+                <Redirect path="*" to="/" />
               </Switch>
-              {/* <Typography paragraph>
-              contents
-            </Typography> */}
             </main>
           </BrowserRouter>
         </div>
