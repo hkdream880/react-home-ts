@@ -21,7 +21,7 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    background: 'red',
+    // background: 'red',
   },
 }))
 

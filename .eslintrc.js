@@ -40,6 +40,8 @@ module.exports = {
    "import/extensions": ['off'],
    "import/no-unresolved": 0,
    'react-hooks/exhaustive-deps': 0,
-   'react/prop-types': 0
+   'react/prop-types': 0,
+   'no-alert': 0,
+   'explicit-module-boundary-types': 0
   },
 };

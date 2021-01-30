@@ -3,6 +3,7 @@
         "strict": true,
         "lib": [
             "ES5",
+            "ES6",
             "ES2015",
             "ES2016",
             "ES2017",
@@ -11,7 +12,9 @@
         ],
         "jsx": "react",
         "skipLibCheck": true,
-        "target": "ES5"
+        "target": "ES6",
+        "experimentalDecorators": true,
+        "moduleResolution": "Node"
     },
     "include": [
         "./src/**/*"

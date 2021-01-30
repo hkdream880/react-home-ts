@@ -9,8 +9,8 @@ import List from '@material-ui/core/List'
 
 import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
-import ListItemIcon from '@material-ui/core/ListItemIcon'
 import ListItemText from '@material-ui/core/ListItemText'
+import ListItemIcon from '@material-ui/core/ListItemIcon'
 import InboxIcon from '@material-ui/icons/MoveToInbox'
 import MailIcon from '@material-ui/icons/Mail'
 import { Link } from 'react-router-dom'
@@ -76,9 +76,11 @@ const LeftMenu:React.FC<LeftMenuProps> = ({ open }) => {
             </ListItem>
           ))} */}
           <ListItem button>
-            <ListItemIcon><InboxIcon /></ListItemIcon>
             {/* <ListItemText primary="test" /> */}
-            <Link to="/">home</Link>
+            <Link to="/">
+              <ListItemIcon><InboxIcon /></ListItemIcon>
+              home
+            </Link>
           </ListItem>
         </List>
         <Divider />
@@ -90,9 +92,10 @@ const LeftMenu:React.FC<LeftMenuProps> = ({ open }) => {
             </ListItem>
           ))} */}
           <ListItem button>
-            <ListItemIcon><MailIcon /></ListItemIcon>
-
-            <Link to="page2">page2</Link>
+            <Link to="page2">
+              <ListItemIcon><MailIcon /></ListItemIcon>
+              page2
+            </Link>
           </ListItem>
         </List>
       </Drawer>
