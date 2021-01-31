@@ -22,7 +22,7 @@ module.exports = (env, options) => {
       rules: [
         {
           test: /\.tsx?$/,
-          loader: 'awesome-typescript-loader',
+          loader: 'ts-loader',
         },
         {
           test: /\.css$/i,
@@ -57,11 +57,12 @@ module.exports = (env, options) => {
       // new webpack.HotModuleReplacementPlugin() //hot loader 와 안맞는듯?
        // DefinePlugin으로 'process.env.ENV'를 process.env.ENV 이라는 환경변수를 정의하고
        new webpack.DefinePlugin({
-        'process.env.ENV': JSON.stringify(process.env.ENV),
-        'ENV': JSON.stringify(process.env.ENV)
+        // 'process.env.ENV': JSON.stringify(process.env.ENV),
+        'ENV': JSON.stringify(process.env.ENV),
+        'CAPTCHA_SITE_KEY': JSON.stringify(process.env.CAPTCHA_SITE_KEY)
       }),
       // EnvironmentPlugin 이 뒤에 []에 해당하는 환경변수를 클라이언트로 전달해 준답니다.
-      new webpack.EnvironmentPlugin(['ENV'])
+      new webpack.EnvironmentPlugin(['ENV','CAPTCHA_SITE_KEY'])
     ],
     output: {
       filename: '[name].[hash].js',

@@ -6,7 +6,7 @@ import {
   SCORE_UP_ASYNC,
   SCORE_DOWN,
   SCORE_UP,
-} from '../consts/consts'
+} from '../consts/actions'
 
 function* scoreUpAsync() {
   yield delay(2000)
@@ -22,7 +22,7 @@ function* scoreDownAsync() {
   */
 
   yield delay(2000)
-  yield put({ type: SCORE_DOWN_ASYNC, score: 1 })
+  yield put({ type: SCORE_DOWN, score: 1 })
 }
 
 function* watchScoreUp() {
@@ -31,7 +31,7 @@ function* watchScoreUp() {
 }
 
 function* watchScoreDown() {
-  yield takeEvery(SCORE_DOWN, scoreDownAsync)
+  yield takeEvery(SCORE_DOWN_ASYNC, scoreDownAsync)
 }
 
 export default function* rootSaga(): Generator {

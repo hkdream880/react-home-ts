@@ -7,6 +7,13 @@ import Typography from '@material-ui/core/Typography'
 import Button from '@material-ui/core/Button'
 import IconButton from '@material-ui/core/IconButton'
 import MenuIcon from '@material-ui/icons/Menu'
+import { Link } from 'react-router-dom'
+import Login from './login'
+import { useSelector } from 'react-redux'
+import { RootState, UserState } from '../../types/redux'
+// import Avatar from '@material-ui/core/Avatar';
+import AvataIcon from '../common/avatarIcon'
+
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -28,6 +35,8 @@ type HeaderProps = {
 const Header:React.FC<HeaderProps> = ({ toggleNavi, showNavi }): React.ReactElement => {
   const classes = useStyles()
 
+  const user  = useSelector((state: RootState) => state.userStore.user)
+
   return (
     <div className={classes.root} data-testid="header">
       <AppBar position="static">
@@ -44,9 +53,24 @@ const Header:React.FC<HeaderProps> = ({ toggleNavi, showNavi }): React.ReactElem
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" className={classes.title}>
-            News
+            <Link to="/" style={{textDecoration: 'none', color:'#fff'}}>
+                HK's Home
+            </Link>
           </Typography>
-          <Button color="inherit">Login</Button>
+          {user ? 
+            <AvataIcon />:
+            // <Avatar>
+            //   {user.email.substring(0,1).toUpperCase()}
+            // </Avatar>:
+            <>
+              <Login />
+              <Button >
+                <Link to="/join" style={{textDecoration: 'none', color: 'white'}}>
+                  JOIN
+                </Link>
+              </Button>
+            </>
+          }
         </Toolbar>
       </AppBar>
     </div>

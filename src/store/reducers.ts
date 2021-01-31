@@ -1,33 +1,37 @@
+import { combineReducers } from 'redux'
 import {
-  SCORE_DOWN_ASYNC, SCORE_UP_ASYNC, SCORE_DOWN, SCORE_UP,
-} from '../consts/consts'
-import { ScoreAction } from './actions'
-import { InitialState } from '../types/redux'
+  SCORE_DOWN_ASYNC, SCORE_UP_ASYNC, SCORE_DOWN, SCORE_UP, SET_USER
+} from '../consts/actions'
+import scoreStore from './score'
+import userStore from './user'
+// import { InitialState } from '../types/redux'
 
-const initialState:InitialState = {
-  score: 0,
-}
+// const initialState:InitialState = {
+//   score: 0,
+//   user: null
+// }
 
-const reducer = (state = initialState, action: ScoreAction): InitialState => {
-  const newState = { ...state }
+// const reducer = (state = initialState, action: ScoreAction | UserAction): InitialState => {
+//   const newState = { ...state }
 
-  switch (action.type) {
-  case SCORE_UP:
-    newState.score += 1
-    return newState
-  case SCORE_DOWN:
-    newState.score -= 1
-    return newState
-  case SCORE_UP_ASYNC:
-    // newState.score += 1
-    return newState
-  case SCORE_DOWN_ASYNC:
-    // newState.score -= 1
-    return newState
-  default:
-    return state
-  }
-}
+//   switch (action.type) {
+//   case SCORE_UP:
+//     newState.score += 1
+//     return newState
+//   case SCORE_DOWN:
+//     newState.score -= 1
+//     return newState
+//   case SCORE_UP_ASYNC:
+//     return newState
+//   case SCORE_DOWN_ASYNC:
+//     return newState
+//   case SET_USER: 
+//     console.log(SET_USER)
+//     console.log(action)
+//     return newState
+//   default:
+//     return state
+//   }
+// }
 
-export type RootState = ReturnType<typeof reducer>;
-export default reducer
+export default combineReducers({scoreStore, userStore})

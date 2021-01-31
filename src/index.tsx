@@ -9,7 +9,10 @@ import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas/sagas'
 import { composeWithDevTools } from 'redux-devtools-extension'
 
+console.log('process.env.ENV')
 console.log(process.env.ENV)
+console.log(process.env.CAPTCHA_SITE_KEY)
+
 const sagaMiddleware = createSagaMiddleware()
 const store = process.env.ENV === 'dev'?
 createStore(

@@ -9,19 +9,21 @@ import {
 import {
   BrowserRouter, Redirect, Route, Switch,
 } from 'react-router-dom'
-import Header from './components/header'
-import LeftMenu from './components/leftMenu'
+import Header from './components/common/header'
+import LeftMenu from './components/common/leftMenu'
 import Home from './pages/home'
-import Page2 from './pages/page2'
+import ReduxTest from './pages/redux-test'
+import Join from './pages/join'
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     display: 'flex',
+    paddingLeft: '48px'
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    // background: 'red',
+    border: '1px solid #424242'
   },
 }))
 
@@ -31,21 +33,22 @@ const App: React.FC = () => {
   return (
     <>
       <CssBaseline />
+      <BrowserRouter>
       <Header toggleNavi={setShowLeftNavi} showNavi={showLeftNavi} />
-      <Container>
+      <Container >
         <div className={classes.root}>
-          <BrowserRouter>
             <LeftMenu open={showLeftNavi} />
             <main className={classes.content}>
               <Switch>
                 <Route path="/" exact component={Home} />
-                <Route path="/page2" component={Page2} />
+                <Route path="/redux-test" component={ReduxTest} />
+                <Route path="/join" component={Join} />
                 <Redirect path="*" to="/" />
               </Switch>
             </main>
-          </BrowserRouter>
         </div>
       </Container>
+      </BrowserRouter>
 
     </>
   )

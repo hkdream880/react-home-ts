@@ -5,8 +5,8 @@ import ButtonGroup from '@material-ui/core/ButtonGroup'
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles'
 import { MouseEvent } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { SCORE_DOWN, SCORE_UP_ASYNC } from '../../consts/consts'
-import { InitialState } from '../../types/redux'
+import { SCORE_DOWN, SCORE_UP_ASYNC } from '../../consts/actions'
+import { ScoreState, RootState } from '../../types/redux'
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
@@ -19,12 +19,12 @@ const useStyles = makeStyles((theme: Theme) => createStyles({
   },
 }))
 
-const Page2: React.FC = () => {
+const ReduxTest: React.FC = () => {
   const classes = useStyles()
   const dispatch = useDispatch()
 
-  const score:number = useSelector((state:InitialState) => state.score)
-
+  const score:number = useSelector((state:RootState) => state.scoreStore.score)
+  console.log(score)
   const btnClickHandler = (e: MouseEvent): void => {
     e.preventDefault()
     dispatch({ type: e.currentTarget.getAttribute('data-type') })
@@ -42,4 +42,4 @@ const Page2: React.FC = () => {
     </div>
   )
 }
-export default Page2
+export default ReduxTest

@@ -9,11 +9,10 @@ import List from '@material-ui/core/List'
 
 import Divider from '@material-ui/core/Divider'
 import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
 import ListItemIcon from '@material-ui/core/ListItemIcon'
-import InboxIcon from '@material-ui/icons/MoveToInbox'
-import MailIcon from '@material-ui/icons/Mail'
+import { Home, Mail } from '@material-ui/icons'
 import { Link } from 'react-router-dom'
+import { ListItemText } from '@material-ui/core'
 
 const drawerWidth = 240
 
@@ -62,42 +61,29 @@ const LeftMenu:React.FC<LeftMenuProps> = ({ open }) => {
     <div data-testid="leftMenu">
       <Drawer
         variant="permanent"
-        className={toolbarClass}
+        // className={toolbarClass}
         classes={{
           paper: toolbarClass,
         }}
       >
         <Divider />
         <List className={classes.list}>
-          {/* {['Inbox', 'Starred', 'Send email', 'Drafts'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+          <Link to="/" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+              <ListItemIcon><Home /></ListItemIcon>
+              <ListItemText secondary={'HOME'} />
             </ListItem>
-          ))} */}
-          <ListItem button>
-            {/* <ListItemText primary="test" /> */}
-            <Link to="/">
-              <ListItemIcon><InboxIcon /></ListItemIcon>
-              home
-            </Link>
-          </ListItem>
+          </Link>
         </List>
         <Divider />
-        <List className={classes.list}>
-          {/* {['All mail', 'Trash', 'Spam'].map((text, index) => (
-            <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
-              <ListItemText primary={text} />
+        {/* <List className={classes.list}>
+          <Link to="/redux-test" style={{ textDecoration: 'none' }}>
+            <ListItem button>
+              <ListItemIcon><Mail /></ListItemIcon>
+              <ListItemText secondary={'redux-test'} />
             </ListItem>
-          ))} */}
-          <ListItem button>
-            <Link to="page2">
-              <ListItemIcon><MailIcon /></ListItemIcon>
-              page2
-            </Link>
-          </ListItem>
-        </List>
+          </Link>
+        </List> */}
       </Drawer>
     </div>
   )
