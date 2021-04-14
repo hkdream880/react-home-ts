@@ -18,12 +18,12 @@ import Join from './pages/join'
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
     display: 'flex',
-    paddingLeft: '48px'
+    paddingLeft: '48px',
   },
   content: {
     flexGrow: 1,
     padding: theme.spacing(3),
-    border: '1px solid #424242'
+    border: '1px solid #424242',
   },
 }))
 
@@ -34,9 +34,9 @@ const App: React.FC = () => {
     <>
       <CssBaseline />
       <BrowserRouter>
-      <Header toggleNavi={setShowLeftNavi} showNavi={showLeftNavi} />
-      <Container >
-        <div className={classes.root}>
+        <Header toggleNavi={setShowLeftNavi} showNavi={showLeftNavi} />
+        <Container>
+          <div className={classes.root}>
             <LeftMenu open={showLeftNavi} />
             <main className={classes.content}>
               <Switch>
@@ -46,8 +46,8 @@ const App: React.FC = () => {
                 <Redirect path="*" to="/" />
               </Switch>
             </main>
-        </div>
-      </Container>
+          </div>
+        </Container>
       </BrowserRouter>
 
     </>
