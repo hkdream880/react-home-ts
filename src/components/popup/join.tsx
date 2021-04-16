@@ -8,10 +8,8 @@ import DialogContent from '@material-ui/core/DialogContent'
 import DialogContentText from '@material-ui/core/DialogContentText'
 import DialogTitle from '@material-ui/core/DialogTitle'
 import { useDispatch } from 'react-redux'
-import { GoogleReCaptchaProvider, GoogleReCaptcha } from 'react-google-recaptcha-v3'
 import { useForm } from 'react-hook-form'
 import { makeStyles } from '@material-ui/core/styles'
-import { SET_USER } from '../../consts/actions'
 import { Join } from '../../types/joinform'
 
 const useStyles = makeStyles({
@@ -27,9 +25,10 @@ const useStyles = makeStyles({
   },
 })
 
-const JoinDialog = () => {
+const JoinDialog:React.FC = (): React.ReactElement => {
   const classes = useStyles()
   const [captcharState, setCaptcharState] = React.useState(false)
+
   const captcharSuccessHandler = () => {
     setCaptcharState(true)
     console.log('captcharState: ', captcharState)
@@ -42,7 +41,9 @@ const JoinDialog = () => {
   const {
     register, handleSubmit, watch, errors,
   } = useForm<Join>()
+
   const [open, setOpen] = React.useState(false)
+
   const dispatch = useDispatch()
 
   const handleClickOpen = () => {
@@ -67,14 +68,12 @@ const JoinDialog = () => {
               id="input-email"
               label="email"
               className={classes.defaultInput}
-              type="email"
+              type="text"
               name="email"
-              // required
+              inputRef={register}
+              autoComplete="nope"
               inputProps={{
                 required: true,
-                form: {
-                  autocomplete: 'off',
-                },
               }}
             />
             <br />
@@ -82,12 +81,11 @@ const JoinDialog = () => {
               id="input-nick"
               label="nick"
               name="nick"
+              type="text"
               className={classes.defaultInput}
+              inputRef={register}
               inputProps={{
                 required: true,
-                form: {
-                  autocomplete: 'off',
-                },
               }}
             />
             <br />
@@ -96,8 +94,9 @@ const JoinDialog = () => {
               label="password"
               className={classes.defaultInput}
               type="password"
-              autoComplete="off"
+              autoComplete="new-password"
               name="password"
+              inputRef={register}
               inputProps={{
                 required: true,
               }}
@@ -109,6 +108,7 @@ const JoinDialog = () => {
               className={classes.defaultInput}
               type="password"
               name="repeat-password"
+              inputRef={register}
               inputProps={{
                 required: true,
               }}
