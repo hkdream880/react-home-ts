@@ -21,27 +21,30 @@ module.exports = {
     'react',
     '@typescript-eslint',
   ],
-  ignorePatterns: ["src/index.tsx", "test/**/*"],
+  ignorePatterns: ['src/index.tsx', 'test/**/*'],
   rules: {
+    'no-console': 'off',
     'linebreak-style': 0,
     'react/jsx-filename-extension': 0,
-    "indent": ["error", 2],
-    "semi": ["error","never"],
-  //   "import/extensions": [
-  //     "error",
-  //     "ignorePackages",
+    'indent': ['error', 2],
+    'semi': ['error','never'],
+  //   'import/extensions': [
+  //     'error',
+  //     'ignorePackages',
   //     {
-  //       "js": "never",
-  //       "jsx": "never",
-  //       "ts": "never",
-  //       "tsx": "never"
+  //       'js': 'never',
+  //       'jsx': 'never',
+  //       'ts': 'never',
+  //       'tsx': 'never'
   //     }
   //  ],
-   "import/extensions": ['off'],
-   "import/no-unresolved": 0,
+   'import/extensions': ['off'],
+   'import/no-unresolved': 0,
    'react-hooks/exhaustive-deps': 0,
    'react/prop-types': 0,
    'no-alert': 0,
-   'explicit-module-boundary-types': 0
+   'explicit-module-boundary-types': 0,
+   'react/jsx-props-no-spreading': 0,
+   'max-len': ['warning', { 'code': 200 }]
   },
 };

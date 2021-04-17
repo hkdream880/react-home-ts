@@ -1,6 +1,6 @@
 import * as React from 'react' // 해당 타입에는 export default가 없기 때문에 import React from 'react' 불가
 import * as ReactDOM from 'react-dom'
-// import { hot } from 'react-hot-loader/root'
+import { hot } from 'react-hot-loader/root'
 import App from './app'
 import rootReducer from './store/reducers'
 import { createStore, applyMiddleware } from 'redux'
@@ -8,6 +8,7 @@ import { Provider } from 'react-redux'
 import createSagaMiddleware from 'redux-saga'
 import rootSaga from './sagas/sagas'
 import { composeWithDevTools } from 'redux-devtools-extension'
+
 
 console.log('process.env.ENV')
 console.log(process.env.ENV)
@@ -25,9 +26,9 @@ createStore(
 )
 sagaMiddleware.run(rootSaga)
 
-// const HOT = hot(App)
+const HOT = hot(App)
 ReactDOM.render(
   <Provider store={store}>
-    <App />
+    {process.env.ENV === 'dev' ? <HOT/>:<App />}
   </Provider>,
   document.querySelector('#root'))

@@ -26,8 +26,16 @@ const Join: React.FC = () => {
   }
 
   const {
-    register, handleSubmit, watch, errors,
-  } = useForm<Join>()
+    register, handleSubmit, watch,
+  } = useForm<Join>({
+    mode: 'onSubmit',
+    reValidateMode: 'onChange',
+    defaultValues: {},
+    resolver: undefined,
+    context: undefined,
+    criteriaMode: 'firstError',
+    shouldFocusError: true,
+  })
 
   const classes = useStyles()
 

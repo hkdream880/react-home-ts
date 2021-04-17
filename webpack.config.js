@@ -25,8 +25,8 @@ module.exports = (env, options) => {
           loader: 'ts-loader',
         },
         {
-          test: /\.css$/i,
-          use: ['style-loader', 'css-loader'],
+          test: /\.scss$/i,
+          use: ['style-loader', 'css-loader', 'sass-loader'],
         },
         {
           enforce: 'pre', test: /\.tsx$/, loader: 'source-map-loader',

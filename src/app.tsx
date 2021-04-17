@@ -14,6 +14,7 @@ import LeftMenu from './components/common/leftMenu'
 import Home from './pages/home'
 import ReduxTest from './pages/redux-test'
 import Join from './pages/join'
+import './style/index.scss'
 
 const useStyles = makeStyles((theme: Theme) => createStyles({
   root: {
